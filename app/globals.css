@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -17,11 +19,53 @@
 }
 
 body {
+  overflow-x: hidden;
+  width: 100vw;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: linear-gradient(125deg, rgba(170, 209, 255, 0.6), rgba(191, 240, 255, 0.44));
+}
+
+main {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.chart, .graph {
+  position: absolute;
+}
+
+.chart {
+  top: -5vw;
+  transform: rotateY(180deg) rotateZ(20deg);
+}
+
+.graph {
+  bottom: 5vw;
+  right: -5vw;
+  transform: rotateY(180deg) rotateZ(20deg);
+}
+
+.image-section {
+  position: relative;
+}
+
+.image-section::before {
+  overflow: hidden;
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: -2vw;
+  left: 5vw;
+  width: clamp(300px, 30vw, 350px);
+  aspect-ratio: 1 / 1;
+  background: #9390FF;
+  opacity: 0.5;
+  border-radius: 50%;
+}
+
+.illustration {
+  transform: rotateY(180deg);
+  filter: saturate(1.4);
+  stroke: black;
+  stroke-width: 10px;
 }
